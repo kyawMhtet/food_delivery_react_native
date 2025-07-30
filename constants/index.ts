@@ -77,18 +77,19 @@ export const offers = [
         image: burgerTwo,
         color: "#DF5A0C",
     },
-    {
+        {
         id: 3,
-        title: "PIZZA PARTY",
-        image: pizzaOne,
-        color: "#084137",
-    },
-    {
-        id: 4,
         title: "BURRITO DELIGHT",
         image: buritto,
         color: "#EB920C",
     },
+    {
+        id: 4,
+        title: "PIZZA PARTY",
+        image: pizzaOne,
+        color: "#084137",
+    },
+
 ];
 
 export const sides = [

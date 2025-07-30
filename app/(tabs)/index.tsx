@@ -1,12 +1,15 @@
 import CartButton from "@/components/CartButton";
 import { images, offers } from "@/constants";
+import useAuthStore from "@/store/auth.store";
 import cn from "clsx";
 import { FlatList, Image, Pressable, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
-  // This function returns the header component.
-  // It's good practice to extract it so the main return statement is cleaner.
+  const {user} = useAuthStore();
+
+  console.log('User:', JSON.stringify(user, null, 2));
+
   const renderListHeader = () => (
     <View className="flex-between flex-row w-full my-5 px-5">
       <View className="flex-start">
@@ -26,12 +29,11 @@ export default function Index() {
       <FlatList
         data={offers}
         ListHeaderComponent={renderListHeader} 
-        // ListFooterComponent={<View><Text>Footer</Text></View>}
         renderItem={({ item, index }) => {
           const isEven = index % 2 === 0;
 
           return (
-            <View className="p-4 pt-0"> {/* Adjusted padding-top to avoid double padding */}
+            <View className="p-4 pt-0"> 
               <Pressable
                 className={cn('offer-card', isEven ? 'flex-row-reverse' : 'flex-row')}
                 style={{ backgroundColor: item.color }}
